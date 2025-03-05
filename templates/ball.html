@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stability Ball Stretch</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .exercise-image {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ready-button {
+            display: block;
+            margin: 20px auto;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="history.back()">←</button>
+    <div class="container">
+        <h1>Stability Ball Arm Raise</h1>
+        <p class="description">Improves core stability, balance, and shoulder mobility. The instability of the ball engages deep core muscles while the arm raises strengthen the shoulders and upper back.</p>
+        <img src="{{ url_for('static', filename='images/exercise-4.png') }}" alt="Stability Ball Arm Raise" class="exercise-image">
+        <button class="ready-button" onclick="window.location.href='{{ url_for('ball_perform') }}'">Ready to perform →</button>
+    </div>
+</body>
+</html>

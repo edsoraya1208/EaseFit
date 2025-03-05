@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belly Lift - Live Pose Detection</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .left-column, .right-column {
+            flex: 1;
+            min-width: 300px;
+        }
+        .exercise-image {
+            width: 100%;
+            max-width: 300px;
+            display: block;
+        }
+        .steps {
+            background-color: #e6f3ff;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+        }
+        .steps h2 {
+            color: #ffd700;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .steps p {
+            margin: 2px 0;
+            color: #0066cc;
+            font-size: 14px;
+        }
+        .back-button, .finished-button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .camera-feed {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            border: 2px solid #2c3e50;
+            display: block;
+            margin: 0 auto;
+        }
+        .instructions {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='{{ url_for('belly') }}'">← Back</button>
+    
+    <div class="container">
+        <h1>Align Your Posture with the Reference Image</h1>
+        <div class="content-wrapper">
+            <div class="left-column">
+                <img src="{{ url_for('static', filename='images/belly.png') }}" alt="Belly Lift Pose" class="exercise-image">
+                <div class="steps">
+                    <h2>STEPS</h2>
+                    <p>Lie on your back with your knees bent and feet flat on the floor.</p>
+                    <p>Place your hands on your belly.</p>
+                    <p>Inhale deeply and lift your belly towards the ceiling while keeping your back flat.</p>
+                    <p>Hold for a few seconds and gently lower your belly back down.</p>
+                </div>
+            </div>
+            <div class="right-column">
+                <h2 class="camera-title">Live Pose Detection</h2>
+                <img src="{{ url_for('video_feed_belly') }}" alt="Live Camera Feed" class="camera-feed">
+                <div class="instructions">
+                    Position yourself so your body matches the reference pose. Green indicators show your joints are correctly aligned.
+                </div>
+            </div>
+        </div>
+        <button class="finished-button" onclick="window.location.href='/'">Finished →</button>
+    </div>
+</body>
+</html>
