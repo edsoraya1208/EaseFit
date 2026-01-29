@@ -194,10 +194,10 @@ def get_reference_angles(pose_type):
     # Default angles as fallback
     default_references = {
         'pose1': {
-            'left_shoulder': {'angle': 90, 'min': 70, 'max': 110},
-            'right_shoulder': {'angle': 90, 'min': 70, 'max': 110},
-            'left_elbow': {'angle': 90, 'min': 70, 'max': 110},
-            'right_elbow': {'angle': 90, 'min': 70, 'max': 110}
+            'left_shoulder': {'angle': 90, 'min': 60, 'max': 130}, 
+            'right_shoulder': {'angle': 90, 'min': 60, 'max': 130},
+            'left_elbow': {'angle': 120, 'min': 30, 'max': 180},
+            'right_elbow': {'angle': 120, 'min': 30, 'max': 180}
         },
         'pose2': {
             'left_shoulder': {'angle': 45, 'min': 25, 'max': 65},
@@ -375,7 +375,7 @@ def generate_frames(pose_type='stretch'):
                     print(f"Correct Joints: {correct_joints} / {total_joints}")
                     
                     # Consider it a correct pose if 2 or fewer joints are incorrect
-                    if incorrect_joints <= 2:
+                    if incorrect_joints == 0:
                         status_msg = "PERFECT! GOOD JOB!"
                         status_color = (0, 255, 0)  # Green
                         # Add extra visual feedback for perfect pose
