@@ -200,10 +200,13 @@ def get_reference_angles(pose_type):
             'right_elbow': {'angle': 120, 'min': 30, 'max': 180}
         },
         'pose2': {
-            'left_shoulder': {'angle': 45, 'min': 25, 'max': 65},
-            'right_shoulder': {'angle': 45, 'min': 25, 'max': 65},
-            'left_elbow': {'angle': 120, 'min': 100, 'max': 140},
-            'right_elbow': {'angle': 120, 'min': 100, 'max': 140}
+           # Shoulders should be HIGH (arms up)
+            'left_shoulder': {'angle': 160, 'min': 100, 'max': 180}, 
+            'right_shoulder': {'angle': 160, 'min': 100, 'max': 180},
+            
+            # Elbows should be BENT (hands behind head)
+            'left_elbow': {'angle': 45, 'min': 20, 'max': 100},
+            'right_elbow': {'angle': 45, 'min': 20, 'max': 100}
         },
         'pose3': {
             'left_shoulder': {'angle': 60, 'min': 40, 'max': 80},
